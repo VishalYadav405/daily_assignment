@@ -1,0 +1,2 @@
+  501   545     1   0  9:53AM ??         0:00.01 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/114.0.5735.198/Helpers/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --database=/Users/inito/Library/Application Support/Google/Chrome/Crashpad --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=OS X --annotation=prod=Chrome_Mac --annotation=ver=114.0.5735.198 --handshake-fd=5
+  501   883   881   0 10:13AM ttys000    0:00.00 grep chrome
