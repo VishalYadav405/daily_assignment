@@ -1,0 +1,66 @@
+#!/bin/bash
+
+
+shuffle_array() {
+    local array=("$@") 
+    local n=${#array[@]}
+    local shuffled_array=("${array[@]}")
+
+    for ((i = 0; i < n; i++)); do
+        j=$((RANDOM % n))
+
+        local temp=${shuffled_array[i]}
+        shuffled_array[i]=${shuffled_array[j]}
+        shuffled_array[j]=$temp
+    done
+
+    echo "${shuffled_array[@]}"
+}
+
+
+read total_time
+#total_time=30
+total_time_sec=$((total_time * 60))
+songs_size=()
+array=()
+
+
+for ((i=0; i<total_time_sec;i++));do
+	array+=("1")
+done
+
+number_of_song=$((RANDOM % total_time))
+
+for (( i=0;i<number_of_song ; i++));do
+	array+=("0")
+done
+
+
+suffled_a=($(shuffle_array "${array[@]}"))
+
+array+=("0")
+k=0
+for dig in  "${suffled_a[@]}"; do
+	if [ $dig -eq 1 ];then
+		k=$((k+1))
+	else
+		songs_size+=($((k)))		
+		k=0
+	fi
+done
+
+
+rm -rf playlist
+mkdir playlist
+
+for song in "${songs_size[@]}"
+do
+	minutes=$((song / 60))
+	seconds=$((song % 60))
+
+	file_name=${minutes}_${seconds}.mp3
+	
+	touch "./playlist/$file_name"
+	
+#	echo "$file_name created" 
+done

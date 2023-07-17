@@ -1,0 +1,7 @@
+if [ -n "`pgrep -i chrome`" ]
+then 
+    pkill -i chrome
+    (date +%s) >> record.txt
+    #date -d "@$timestamp" +"%Y-%m-%d %H:%M:%S" >> record.txt
+fi
+

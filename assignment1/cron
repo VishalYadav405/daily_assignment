@@ -1,0 +1,2 @@
+crontab -e
+*/1 * * * * Users/inito/Downloads/assignment1/sol
